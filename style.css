@@ -124,3 +124,16 @@ body {
   .highlight pre {
     overflow-x: auto;
   }
+
+  #added_jobs{
+    padding:10px;
+  }
+
+ .added_job{
+   margin:10px;
+ }
+
+ nav{
+   padding-left:10px;
+   padding-right:10px;
+ }

@@ -1,3 +1,4 @@
+
 var tasks = [
     {"startDate":new Date("Sun Dec 09 01:36:45 EST 2012"),"endDate":new Date("Sun Dec 09 02:36:45 EST 2012"),"taskName":"E Job","status":"RUNNING"},
     {"startDate":new Date("Sun Dec 09 04:56:32 EST 2012"),"endDate":new Date("Sun Dec 09 06:35:47 EST 2012"),"taskName":"A Job","status":"RUNNING"},
@@ -48,3 +49,35 @@ var tasks = [
     
     var gantt = d3.gantt().taskTypes(taskNames).taskStatus(taskStatus).tickFormat(format);
     gantt(tasks);
+
+
+
+    var newJob = document.getElementById("new_job");
+    var title = document.getElementById('job_name');
+    var job_date = document.getElementById('job_date');
+    var starttime = document.getElementById('job_starttime');
+    var endtime = document.getElementById('job_endtime');
+    var newjob_taskstatus = document.getElementById('status');
+
+
+    function add_job(){
+        var job = document.createElement('button');
+        job.innerHTML = title.value;
+        job.className = 'added_job'
+        document.getElementById('added_jobs').append(job);
+
+        var newjob_object  = {
+            "startTime":starttime.value,
+            "endTime":endtime.value,
+            "taskname":title.value,
+            "status":newjob_taskstatus.value
+        }
+
+        tasks.push(newjob_object);
+
+    }
+
+    newJob.addEventListener('click',add_job);
+    console.log(tasks);
+
+    
